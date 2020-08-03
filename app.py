@@ -55,3 +55,6 @@ app.layout = html.Div([
 #configuration
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+from app import app
+application = app.server
