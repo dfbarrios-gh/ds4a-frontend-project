@@ -5,11 +5,13 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
+from flask import Flask, request, jsonify
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-#app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
-app = dash.Dash(__name__, external_stylesheets = external_stylesheets, requests_pathname_prefix = '/flaskfront/')
-server = app.server
+
+server = Flask(__name__)
+app = dash.Dash(name = __name__, server = server, external_stylesheets = external_stylesheets)
+#app.config.supress_callback_exceptions = True
 app.title = 'DS4A 2020 Team35'
 
 #global
